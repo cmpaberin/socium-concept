@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Socium concept &middot; built by LocalEnhance</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="An unofficial website concept for Socium, built by LocalEnhance. Not a live site and not affiliated with Socium.">
+<meta property="og:title" content="Socium website concept, by LocalEnhance">
+<meta property="og:description" content="A working concept build. Not the live socium.team.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Roboto+Mono:wght@400;500;600&display=swap">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+  :root{
+    --paper:#F7F7F7;
+    --card:#FFFFFF;
+    --sunk:#EFEFEF;
+    --deep:#2D2D2D;
+    --deep-2:#3B3B3B;
+    --ink:#2D2D2D;
+    --text:#3F3F3F;
+    --mute:#6E6E6E;
+    --faint:#9A9A9A;
+    --line:#E2E2E2;
+    --line-firm:#C4C4C4;
+    --hot:#FD6F06;
+    --hot-deep:#D95E00;
+    --hot-wash:#FFF0E3;
+    --sea:#066AAB;
+    --sea-wash:#E4EFF7;
+    --gold:#ED8727;
+    --on-deep:#FFFFFF;
+    --on-deep-mute:#B4B4B4;
+    --lift:0 1px 2px rgba(45,45,45,.05), 0 12px 32px -24px rgba(45,45,45,.38);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1A1A1A; --card:#232323; --sunk:#2D2D2D;
+      --deep:#101010; --deep-2:#1E1E1E;
+      --ink:#F5F5F5; --text:#CFCFCF; --mute:#9B9B9B; --faint:#767676;
+      --line:#333333; --line-firm:#474747;
+      --hot:#FF8A2B; --hot-deep:#FD6F06; --hot-wash:#33200D;
+      --sea:#69AEDC; --sea-wash:#12242F;
+      --gold:#ED8727;
+      --on-deep:#FFFFFF; --on-deep-mute:#B4B4B4;
+      --lift:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -24px rgba(0,0,0,.9);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1A1A1A; --card:#232323; --sunk:#2D2D2D;
+    --deep:#101010; --deep-2:#1E1E1E;
+    --ink:#F5F5F5; --text:#CFCFCF; --mute:#9B9B9B; --faint:#767676;
+    --line:#333333; --line-firm:#474747;
+    --hot:#FF8A2B; --hot-deep:#FD6F06; --hot-wash:#33200D;
+    --sea:#69AEDC; --sea-wash:#12242F;
+    --gold:#ED8727;
+    --on-deep:#FFFFFF; --on-deep-mute:#B4B4B4;
+    --lift:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -24px rgba(0,0,0,.9);
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);color:var(--text);
+    font-family:"Roboto","Helvetica Neue",Arial,sans-serif;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .w{max-width:1160px;margin:0 auto;padding:0 30px}
+  .narrow{max-width:70ch}
+
+  /* proposal bar */
+  .pbar{
+    background:var(--deep);color:var(--on-deep);
+    font-family:"Roboto Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:9px 0;
+  }
+  .pbar .w{display:flex;gap:8px 20px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+  .pbar b{color:var(--hot);font-weight:600}
+  .pbar span{color:var(--on-deep-mute)}
+
+  /* site header */
+  header.site{
+    position:sticky;top:0;z-index:40;background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  header.site .w{display:flex;align-items:center;gap:24px;height:70px}
+  .logo{
+    font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:22px;letter-spacing:-.04em;
+    color:var(--ink);text-decoration:none;flex:none;display:flex;align-items:baseline;gap:2px;
+  }
+  .logo i{color:var(--hot);font-style:normal}
+  nav.main{display:flex;gap:2px;flex:1;flex-wrap:wrap}
+  nav.main button{
+    font:inherit;font-size:14.5px;font-weight:500;background:none;border:none;cursor:pointer;
+    color:var(--mute);padding:8px 13px;border-bottom:2px solid transparent;
+  }
+  nav.main button:hover{color:var(--ink)}
+  nav.main button.on{color:var(--ink);font-weight:600;border-bottom-color:var(--hot)}
+  nav.main button:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+  .cta{
+    font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;font-weight:600;font-size:14.5px;
+    background:var(--hot);color:#2D2D2D;border:1px solid var(--hot);padding:10px 18px;
+    cursor:pointer;flex:none;text-decoration:none;
+  }
+  .cta:hover{background:var(--hot-deep);border-color:var(--hot-deep);color:#FFFFFF}
+  .cta:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+  .cta.ghost{background:transparent;color:var(--ink);border-color:var(--line-firm)}
+  .cta.ghost:hover{border-color:var(--ink);background:transparent}
+  .cta.lt{background:var(--on-deep);color:var(--deep);border-color:var(--on-deep)}
+  .cta.lt:hover{background:#fff;border-color:#fff}
+
+  /* views */
+  .view[hidden]{display:none!important}
+  section{padding:74px 0}
+  section.tight{padding:52px 0}
+  section.dk{background:var(--deep);color:var(--on-deep)}
+  section.sk{background:var(--sunk)}
+
+  h1.hero{
+    font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;font-weight:800;
+    font-size:clamp(38px,6vw,72px);line-height:.98;letter-spacing:-.038em;
+    color:var(--ink);margin:0 0 22px;text-wrap:balance;max-width:19ch;
+  }
+  h1.hero em{font-style:normal;color:var(--hot)}
+  .lede{font-size:19.5px;line-height:1.52;color:var(--mute);max-width:54ch;margin:0 0 30px}
+  .eyebrow{
+    font-family:"Roboto Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--hot);margin-bottom:20px;font-weight:600;
+  }
+  .eyebrow.on-dk{color:var(--hot)}
+  h2.sec{
+    font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;font-weight:700;
+    font-size:clamp(27px,3.4vw,40px);line-height:1.06;letter-spacing:-.028em;
+    color:var(--ink);margin:0 0 16px;text-wrap:balance;max-width:26ch;
+  }
+  section.dk h2.sec, section.dk h3, section.dk .big{color:var(--on-deep)}
+  section.dk .lede, section.dk p{color:var(--on-deep-mute)}
+  h3{font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:19px;letter-spacing:-.018em;color:var(--ink);margin:0 0 9px}
+  p{margin:0 0 15px}
+  .btns{display:flex;gap:11px;flex-wrap:wrap;align-items:center}
+
+  /* hero split */
+  .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:start}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+  .stat-stack{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .stat-stack > div{background:var(--card);padding:20px 22px}
+  .stat-n{font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:38px;line-height:1;color:var(--hot);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .stat-t{font-size:14.5px;color:var(--mute);margin-top:8px;line-height:1.45}
+  .src{font-family:"Roboto Mono",ui-monospace,monospace;font-size:10.5px;color:var(--faint);letter-spacing:.06em;margin-top:10px}
+
+  /* client roster */
+  .roster{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .roster span{
+    font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:16.5px;letter-spacing:-.01em;
+    color:var(--ink);padding:19px 24px;flex:1 1 152px;text-align:center;
+    border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card);
+  }
+  section.dk .roster{border-color:#3B3B3B}
+  section.dk .roster span{background:var(--deep-2);color:var(--on-deep);border-color:#3B3B3B}
+
+  /* service cards */
+  .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+  .svc article{background:var(--card);padding:28px 26px 30px;display:flex;flex-direction:column;gap:9px}
+  .svc .tag{font-family:"Roboto Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--hot);font-weight:600}
+  .svc p{font-size:15px;color:var(--mute);margin:0}
+  .svc .metric{margin-top:auto;padding-top:16px;font-family:"Roboto Mono",ui-monospace,monospace;font-size:12px;color:var(--sea);letter-spacing:.04em;border-top:1px solid var(--line)}
+
+  /* jobs */
+  .jbar{display:flex;gap:11px;flex-wrap:wrap;align-items:flex-end;margin-bottom:22px}
+  .fld{display:flex;flex-direction:column;gap:6px}
+  .fld label{font-family:"Roboto Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--faint);font-weight:600}
+  .fld input,.fld select{
+    font:inherit;font-size:15px;font-family:"Roboto",sans-serif;color:var(--ink);
+    background:var(--card);border:1px solid var(--line-firm);padding:10px 12px;min-width:172px;
+  }
+  .fld input:focus,.fld select:focus{outline:2px solid var(--hot);outline-offset:-1px}
+  .jcount{font-family:"Roboto Mono",ui-monospace,monospace;font-size:12px;color:var(--mute);letter-spacing:.05em;margin-left:auto;padding-bottom:11px}
+  .jobs{border-top:1px solid var(--line-firm)}
+  .job{
+    display:grid;grid-template-columns:1fr auto;gap:14px 26px;align-items:center;
+    padding:21px 4px;border-bottom:1px solid var(--line);
+  }
+  .job:hover{background:var(--card)}
+  .job-t{font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:19px;letter-spacing:-.018em;color:var(--ink);margin-bottom:7px}
+  .job-m{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--mute)}
+  .job-m b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+  .pill{
+    font-family:"Roboto Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    padding:3px 8px;font-weight:600;white-space:nowrap;
+  }
+  .pill.live{background:var(--hot-wash);color:var(--hot-deep)}
+  .pill.ex{background:var(--sunk);color:var(--mute);border:1px solid var(--line-firm)}
+  .job-r{display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  .empty{padding:44px 4px;color:var(--mute);font-size:15.5px}
+
+  /* schema panel */
+  .schema{background:var(--deep);color:var(--on-deep);border:1px solid var(--deep);margin-top:34px}
+  .schema-h{padding:20px 24px 16px;border-bottom:1px solid #3B3B3B}
+  .schema-h h3{color:var(--on-deep);margin-bottom:7px}
+  .schema-h p{color:var(--on-deep-mute);font-size:15px;margin:0;max-width:70ch}
+  .schema pre{
+    margin:0;padding:20px 24px;overflow-x:auto;
+    font-family:"Roboto Mono",ui-monospace,monospace;font-size:12px;line-height:1.7;color:#D8D8D8;
+  }
+  .schema .k{color:#FFA45C}
+  .schema .s{color:#9FC7E4}
+
+  /* case studies */
+  .cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:20px}
+  .case{background:var(--card);border:1px solid var(--line);padding:26px 24px;box-shadow:var(--lift);display:flex;flex-direction:column;gap:8px}
+  .case .cli{font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:21px;letter-spacing:-.025em;color:var(--ink)}
+  .case .sect{font-family:"Roboto Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--faint);font-weight:600}
+  .case p{font-size:15px;color:var(--mute);margin:4px 0 0}
+  .case .out{margin-top:auto;padding-top:15px;border-top:1px solid var(--line);font-size:14.5px;color:var(--sea);font-weight:600}
+
+  /* offices */
+  .offices{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .off{background:var(--card);padding:26px 24px}
+  .off .city{font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:25px;letter-spacing:-.03em;color:var(--ink);margin-bottom:6px}
+  .off .addr{font-size:14.5px;color:var(--mute);line-height:1.5}
+  .off .role{font-family:"Roboto Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--hot);font-weight:600;margin-bottom:12px}
+
+  /* people */
+  .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(216px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .pp{background:var(--card);padding:19px 21px}
+  .pp .nm{font-weight:700;color:var(--ink);font-size:15.5px}
+  .pp .ttl{font-size:13.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+  /* generic two col */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+  @media (max-width:860px){.two{grid-template-columns:1fr;gap:32px}}
+
+  .badge-row{display:flex;gap:11px;flex-wrap:wrap;margin-top:26px}
+  .badge{
+    font-family:"Roboto Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+    border:1px solid var(--line-firm);color:var(--mute);padding:7px 12px;font-weight:600;background:var(--card);
+  }
+  section.dk .badge{border-color:#454545;color:var(--on-deep-mute);background:var(--deep-2)}
+
+  ul.tick{list-style:none;padding:0;margin:0 0 8px}
+  ul.tick li{position:relative;padding-left:24px;margin-bottom:11px;font-size:15.5px;color:var(--text)}
+  ul.tick li::before{
+    content:"";position:absolute;left:0;top:8px;width:9px;height:9px;background:var(--hot);
+  }
+  section.dk ul.tick li{color:var(--on-deep-mute)}
+
+  footer.site{background:var(--deep);color:var(--on-deep-mute);padding:52px 0 34px;font-size:14.5px}
+  footer.site .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:34px;margin-bottom:36px}
+  @media (max-width:820px){footer.site .fgrid{grid-template-columns:1fr 1fr}}
+  footer.site h4{font-family:"Roboto Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--on-deep);margin:0 0 14px;font-weight:600}
+  footer.site a{color:var(--on-deep-mute);text-decoration:none;display:block;margin-bottom:8px}
+  footer.site a:hover{color:var(--on-deep)}
+  footer.site .fin{border-top:1px solid #3B3B3B;padding-top:22px;font-family:"Roboto Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.06em;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+  .flogo{font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:21px;letter-spacing:-.04em;color:var(--on-deep);margin-bottom:12px}
+  .flogo i{color:var(--hot);font-style:normal}
+
+  @media (max-width:640px){
+    .w{padding:0 20px}
+    section{padding:52px 0}
+    header.site .w{height:auto;padding:12px 20px;flex-wrap:wrap;gap:12px}
+    nav.main{order:3;flex-basis:100%;overflow-x:auto}
+    .job{grid-template-columns:1fr}
+    .job-r{justify-content:flex-start}
+    .jcount{margin-left:0}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="pbar"><div class="w">
+  <span><b>Concept</b> by LocalEnhance for Socium</span>
+  <span>Not a live site &nbsp;·&nbsp; 8 Sep 2026</span>
+</div></div>
+
+<header class="site"><div class="w">
+  <a class="logo" href="#" data-go="home">socium<i>.</i></a>
+  <nav class="main" id="nav" aria-label="Main">
+    <button data-go="home" class="on">Home</button>
+    <button data-go="solutions">Solutions</button>
+    <button data-go="jobs">Jobs</button>
+    <button data-go="work">Our work</button>
+    <button data-go="about">About</button>
+  </nav>
+  <button class="cta" data-go="contact">Build a team</button>
+</div></header>
+
+<!-- ============ HOME ============ -->
+<div class="view" id="v-home">
+
+  <section>
+    <div class="w hero-grid">
+      <div>
+        <div class="eyebrow">Tech teams · London · Dubai · Manila</div>
+        <h1 class="hero">Hire the team, not the <em>headcount</em>.</h1>
+        <p class="lede">We build and run the technical teams behind enterprise transformation programmes. Specialist staffing, full delivery squads out of Manila, and recruitment process outsourcing, for FTSE 100 groups, PE-backed businesses and startups scaling fast.</p>
+        <div class="btns">
+          <button class="cta" data-go="contact">Talk to us about a team</button>
+          <button class="cta ghost" data-go="jobs">See open roles</button>
+        </div>
+        <div class="badge-row">
+          <span class="badge">Great Place To Work certified, PH</span>
+          <span class="badge">51 to 100 staff in BGC</span>
+          <span class="badge">8 years operating</span>
+        </div>
+      </div>
+      <div class="stat-stack">
+        <div>
+          <div class="stat-n">61%</div>
+          <div class="stat-t">of companies name rising hiring costs as their main obstacle to keeping talent.</div>
+        </div>
+        <div>
+          <div class="stat-n">79%</div>
+          <div class="stat-t">of CEOs are concerned about talent shortages in their local market.</div>
+        </div>
+        <div>
+          <div class="stat-n">68%</div>
+          <div class="stat-t">of organisations cannot scale fast enough because the people are not there.</div>
+          <div class="src">SOCIUM MARKET RESEARCH</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dk tight">
+    <div class="w">
+      <div class="eyebrow on-dk">Teams we have built</div>
+      <div class="roster">
+        <span>Aveva</span><span>Virgin</span><span>Intuit</span><span>Medtronic</span>
+        <span>bolttech</span><span>TravelPerk</span><span>Preqin</span><span>King</span>
+        <span>Adevinta</span><span>AltoVita</span><span>Noah</span><span>Onto</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="w">
+      <div class="eyebrow">Four ways in</div>
+      <h2 class="sec">Pick the model that fits the problem.</h2>
+      <p class="lede">Most people come to us with either a gap they cannot fill or a programme they cannot staff. Those are different problems, so we run different models.</p>
+      <div class="svc">
+        <article>
+          <div class="tag">Teams as a Service</div>
+          <h3>A delivery squad in Manila</h3>
+          <p>A built, managed team in the Philippines or nearshore, for long-running work or a fixed programme. You get the squad and the management layer, not a stack of CVs.</p>
+          <div class="metric">50 TO 60% AGAINST ONSHORE COST</div>
+        </article>
+        <article>
+          <div class="tag">Socium for Scale</div>
+          <h3>Hiring at pace, without the drop in quality</h3>
+          <p>For startups going from twelve engineers to sixty. A structured hiring model with the cost and the quality bar held while volume goes up.</p>
+          <div class="metric">BUILT FOR HIGH-GROWTH TECH</div>
+        </article>
+        <article>
+          <div class="tag">RPO</div>
+          <h3>Your hiring function, run by us</h3>
+          <p>End to end, from sourcing through to onboarding, as an extension of your team rather than an agency at arm's length. You keep the employer brand, we carry the process.</p>
+          <div class="metric">SOURCING THROUGH ONBOARDING</div>
+        </article>
+        <article>
+          <div class="tag">Specialist Staffing</div>
+          <h3>The role nobody else can fill</h3>
+          <p>Onshore and offshore specialists placed against hard briefs, where the shortlist matters more than the volume. Permanent and contract.</p>
+          <div class="metric">ONSHORE AND OFFSHORE</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk">
+    <div class="w two">
+      <div>
+        <div class="eyebrow">Why Manila</div>
+        <h2 class="sec">Our Manila office is the delivery engine, not a back office.</h2>
+        <p>Twenty-eight people at Four NEO in BGC across permanent hiring, Teams as a Service, RPO and enterprise support. Finance, compliance and contractor operations for APAC sit there too, which is why a squad can be stood up and paid without a separate vendor in the chain.</p>
+        <p>It is also why the cost model works. The same engineers, the same delivery standard, run from a market where the maths is different.</p>
+        <div class="btns"><button class="cta ghost" data-go="about">Meet the team</button></div>
+      </div>
+      <div>
+        <ul class="tick">
+          <li>Permanent, contract and Statement of Work engagements under one entity</li>
+          <li>APAC finance, compliance and contractor payroll in house</li>
+          <li>Great Place To Work certified in the Philippines</li>
+          <li>Dubai and London for onshore client-side coverage</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="dk">
+    <div class="w">
+      <div class="eyebrow on-dk">Ready when you are</div>
+      <h2 class="sec">Tell us what you are trying to ship. We will tell you what the team looks like.</h2>
+      <p class="lede">No long qualification process. A call, a shape, and a costed team within the week.</p>
+      <div class="btns">
+        <button class="cta" data-go="contact">Start a conversation</button>
+        <button class="cta lt" data-go="jobs">I am looking for a role</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SOLUTIONS ============ -->
+<div class="view" id="v-solutions" hidden>
+  <section>
+    <div class="w">
+      <div class="eyebrow">Solutions</div>
+      <h1 class="hero" style="max-width:24ch">Four models, one delivery standard.</h1>
+      <p class="lede">Every engagement runs through the same Manila delivery function, so the model you choose changes the commercial shape, not the quality of the people.</p>
+    </div>
+  </section>
+
+  <section class="sk tight">
+    <div class="w">
+      <div class="svc">
+        <article>
+          <div class="tag">01 · Teams as a Service</div>
+          <h3>A managed delivery squad</h3>
+          <p>We assemble the team, embed a delivery lead, and run it from Manila or nearshore. Suited to a transformation programme that needs to run for eighteen months, or a product team you do not want to hire onshore.</p>
+          <div class="metric">50 TO 60% COST SAVING · LONG-RUN OR PROJECT</div>
+        </article>
+        <article>
+          <div class="tag">02 · Socium for Scale</div>
+          <h3>Volume hiring that holds its bar</h3>
+          <p>A structured model for startups adding headcount fast. Pipeline built ahead of the requisition rather than in reaction to it, so the fortieth hire is as good as the fourth.</p>
+          <div class="metric">STARTUP AND HIGH-GROWTH</div>
+        </article>
+        <article>
+          <div class="tag">03 · RPO</div>
+          <h3>Recruitment process outsourcing</h3>
+          <p>We take the hiring function, or the part of it that is breaking. Sourcing, screening, scheduling, offer and onboarding, reported against your own metrics.</p>
+          <div class="metric">END TO END · YOUR EMPLOYER BRAND</div>
+        </article>
+        <article>
+          <div class="tag">04 · Specialist Staffing</div>
+          <h3>Hard briefs, short shortlists</h3>
+          <p>Individual placements where the constraint is the market, not the process. Onshore where you need presence, offshore where you need economics.</p>
+          <div class="metric">PERMANENT AND CONTRACT</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="w two">
+      <div>
+        <div class="eyebrow">How an engagement runs</div>
+        <h2 class="sec">Scoped in a week, staffed in three.</h2>
+        <ul class="tick">
+          <li><b>Week one.</b> Scoping call, then a written team shape with roles, seniority mix, cost and the delivery lead named.</li>
+          <li><b>Weeks two and three.</b> Pipeline built against the shape. You interview, we handle everything either side of the interview.</li>
+          <li><b>Week four.</b> Squad starts, with the delivery lead accountable for output rather than attendance.</li>
+          <li><b>Ongoing.</b> Reporting against your metrics, not ours. Fill rate, time to fill, retention, delivery throughput.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="eyebrow">Commercials</div>
+        <h2 class="sec">Three shapes, depending on who carries the risk.</h2>
+        <ul class="tick">
+          <li><b>Permanent.</b> Fee on placement, with a replacement guarantee.</li>
+          <li><b>Contract and TaaS.</b> Monthly per seat, one contract, one invoice, one entity.</li>
+          <li><b>Statement of Work.</b> Fixed scope, fixed price, we carry delivery risk.</li>
+        </ul>
+        <div class="btns" style="margin-top:20px"><button class="cta" data-go="contact">Ask for a costed shape</button></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ JOBS ============ -->
+<div class="view" id="v-jobs" hidden>
+  <section class="tight">
+    <div class="w">
+      <div class="eyebrow">Open roles</div>
+      <h1 class="hero" style="max-width:22ch">Work on the programmes, not the org chart.</h1>
+      <p class="lede">Every role below is a live requisition with a named client behind it. Hybrid Manila unless stated. Salaries published, because you should not have to ask.</p>
+    </div>
+  </section>
+
+  <section class="tight" style="padding-top:0">
+    <div class="w">
+      <div class="jbar">
+        <div class="fld">
+          <label for="jq">Search</label>
+          <input type="text" id="jq" placeholder="Java, backend, QA...">
+        </div>
+        <div class="fld">
+          <label for="jloc">Location</label>
+          <select id="jloc"><option value="">All locations</option></select>
+        </div>
+        <div class="fld">
+          <label for="jdis">Discipline</label>
+          <select id="jdis"><option value="">All disciplines</option></select>
+        </div>
+        <div class="fld">
+          <label for="jtype">Type</label>
+          <select id="jtype"><option value="">All types</option></select>
+        </div>
+        <div class="jcount" id="jcount">6 roles</div>
+      </div>
+      <div class="jobs" id="jobs"></div>
+
+      <div class="schema">
+        <div class="schema-h">
+          <h3>Every role publishes JobPosting structured data</h3>
+          <p>This is what makes a listing eligible for Google for Jobs and readable by AI assistants. It is generated from the requisition, so nobody has to maintain it by hand. Right now these roles live on Bossjob and LinkedIn, and the search traffic goes to those platforms instead of to socium.team.</p>
+        </div>
+        <pre>{
+  <span class="k">"@context"</span>: <span class="s">"https://schema.org/"</span>,
+  <span class="k">"@type"</span>: <span class="s">"JobPosting"</span>,
+  <span class="k">"title"</span>: <span class="s">"Java Developer"</span>,
+  <span class="k">"employmentType"</span>: <span class="s">"FULL_TIME"</span>,
+  <span class="k">"datePosted"</span>: <span class="s">"2026-09-08"</span>,
+  <span class="k">"hiringOrganization"</span>: {
+    <span class="k">"@type"</span>: <span class="s">"Organization"</span>,
+    <span class="k">"name"</span>: <span class="s">"Socium"</span>,
+    <span class="k">"sameAs"</span>: <span class="s">"https://socium.team"</span>
+  },
+  <span class="k">"jobLocation"</span>: {
+    <span class="k">"@type"</span>: <span class="s">"Place"</span>,
+    <span class="k">"address"</span>: {
+      <span class="k">"@type"</span>: <span class="s">"PostalAddress"</span>,
+      <span class="k">"streetAddress"</span>: <span class="s">"Four NEO, 4th Avenue, Bonifacio Global City"</span>,
+      <span class="k">"addressLocality"</span>: <span class="s">"Taguig"</span>,
+      <span class="k">"addressRegion"</span>: <span class="s">"Metro Manila"</span>,
+      <span class="k">"addressCountry"</span>: <span class="s">"PH"</span>
+    }
+  },
+  <span class="k">"baseSalary"</span>: {
+    <span class="k">"@type"</span>: <span class="s">"MonetaryAmount"</span>,
+    <span class="k">"currency"</span>: <span class="s">"PHP"</span>,
+    <span class="k">"value"</span>: { <span class="k">"@type"</span>: <span class="s">"QuantitativeValue"</span>,
+      <span class="k">"minValue"</span>: 100000, <span class="k">"maxValue"</span>: 200000,
+      <span class="k">"unitText"</span>: <span class="s">"MONTH"</span> }
+  }
+}</pre>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ WORK ============ -->
+<div class="view" id="v-work" hidden>
+  <section>
+    <div class="w">
+      <div class="eyebrow">Our work</div>
+      <h1 class="hero" style="max-width:23ch">Programmes we staffed, and what happened next.</h1>
+      <p class="lede">Nine written case studies across enterprise software, insurtech, travel, mobility and pensions. Each one names the team we built and the outcome the client measured.</p>
+    </div>
+  </section>
+  <section class="sk tight">
+    <div class="w">
+      <div class="cases">
+        <div class="case"><div class="sect">Industrial software</div><div class="cli">Aveva</div><p>Engineering and delivery capability for a transformation programme inside an FTSE 100 industrial software group.</p><div class="out">Read the case study</div></div>
+        <div class="case"><div class="sect">Insurtech</div><div class="cli">bolttech</div><p>Technical hiring at pace across a fast-scaling insurance technology platform.</p><div class="out">Read the case study</div></div>
+        <div class="case"><div class="sect">Business travel</div><div class="cli">TravelPerk</div><p>Product and engineering roles filled through a period of rapid international growth.</p><div class="out">Read the case study</div></div>
+        <div class="case"><div class="sect">Pensions</div><div class="cli">A leading pension provider</div><p>A delivery squad for a regulated financial services programme, with compliance handled in house.</p><div class="out">Read the case study</div></div>
+        <div class="case"><div class="sect">Fintech</div><div class="cli">Noah</div><p>Early-stage technical team build, from first engineer to functioning squad.</p><div class="out">Read the case study</div></div>
+        <div class="case"><div class="sect">Hospitality tech</div><div class="cli">AltoVita</div><p>Scaling a distributed product team without losing the hiring bar.</p><div class="out">Read the case study</div></div>
+        <div class="case"><div class="sect">Mobility</div><div class="cli">Onto</div><p>Engineering capability for an electric vehicle subscription platform.</p><div class="out">Read the case study</div></div>
+        <div class="case"><div class="sect">Healthcare</div><div class="cli">Oliva</div><p>Specialist hires across a clinical technology product.</p><div class="out">Read the case study</div></div>
+        <div class="case"><div class="sect">Offshore delivery</div><div class="cli">GPI</div><p>An offshore Teams as a Service engagement run end to end from Manila.</p><div class="out">Read the case study</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<div class="view" id="v-about" hidden>
+  <section>
+    <div class="w">
+      <div class="eyebrow">About</div>
+      <h1 class="hero" style="max-width:24ch">Three offices, one delivery function.</h1>
+      <p class="lede">Socium has been building technical teams for eight years. London and Dubai sit close to the client. Manila builds and runs the teams.</p>
+    </div>
+  </section>
+
+  <section class="tight" style="padding-top:0">
+    <div class="w">
+      <div class="offices">
+        <div class="off"><div class="role">Group headquarters</div><div class="city">London</div><div class="addr">Client-side coverage for UK and European programmes, and the group commercial function.</div></div>
+        <div class="off"><div class="role">Middle East</div><div class="city">Dubai</div><div class="addr">UAE and wider Gulf coverage, with regional contractor operations supported from Manila.</div></div>
+        <div class="off"><div class="role">Delivery</div><div class="city">Manila</div><div class="addr">Four NEO, 4th Avenue, Bonifacio Global City, Taguig, Metro Manila. Permanent hiring, Teams as a Service, RPO and APAC enterprise support.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk">
+    <div class="w">
+      <div class="eyebrow">Who runs it</div>
+      <h2 class="sec">The people accountable for your engagement.</h2>
+      <div class="people">
+        <div class="pp"><div class="nm">Thomas Chapman</div><div class="ttl">Managing Director, Permanent and APAC</div></div>
+        <div class="pp"><div class="nm">Jerry Amores</div><div class="ttl">Head of Delivery, Permanent and RPO</div></div>
+        <div class="pp"><div class="nm">Clara Turner</div><div class="ttl">Head of TaaS Delivery</div></div>
+        <div class="pp"><div class="nm">Grace Zulueta</div><div class="ttl">Client Partner</div></div>
+        <div class="pp"><div class="nm">Brenda De Leon</div><div class="ttl">Manager, RPO</div></div>
+        <div class="pp"><div class="nm">Hanna Buena</div><div class="ttl">Head of Finance and Compliance, APAC</div></div>
+        <div class="pp"><div class="nm">JP Galinato</div><div class="ttl">Head of Global Marketing</div></div>
+        <div class="pp"><div class="nm">Shane Garcellano</div><div class="ttl">Practice Lead</div></div>
+      </div>
+      <div class="badge-row">
+        <span class="badge">Great Place To Work certified, Philippines</span>
+        <span class="badge">Remote and flexible working</span>
+        <span class="badge">Unlimited holiday</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<div class="view" id="v-contact" hidden>
+  <section>
+    <div class="w two">
+      <div>
+        <div class="eyebrow">Build a team</div>
+        <h1 class="hero" style="max-width:20ch">Tell us the problem, not the job spec.</h1>
+        <p class="lede">The fastest route is a short call. Bring what you are trying to ship and the constraint you keep hitting. We come back with a team shape and a cost.</p>
+        <ul class="tick">
+          <li>A costed team shape within a week of the first call</li>
+          <li>One contract and one invoice, whatever the model</li>
+          <li>Reported against your fill rate and time to fill, not ours</li>
+        </ul>
+      </div>
+      <div>
+        <div class="offices" style="grid-template-columns:1fr">
+          <div class="off"><div class="role">New business</div><div class="city">Manila</div><div class="addr">Four NEO, 4th Avenue, Bonifacio Global City, Taguig, Metro Manila<br><br>Ask for the client partner team.</div></div>
+          <div class="off"><div class="role">Candidates</div><div class="city">Open roles</div><div class="addr">Every live requisition, with salary published.</div><div class="btns" style="margin-top:16px"><button class="cta" data-go="jobs">See open roles</button></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="site"><div class="w">
+  <div class="fgrid">
+    <div>
+      <div class="flogo">socium<i>.</i></div>
+      <p style="max-width:30ch;margin:0">Building and running the technical teams behind enterprise transformation. London, Dubai and Manila.</p>
+    </div>
+    <div><h4>Solutions</h4>
+      <a href="#" data-go="solutions">Teams as a Service</a><a href="#" data-go="solutions">Socium for Scale</a><a href="#" data-go="solutions">RPO</a><a href="#" data-go="solutions">Specialist Staffing</a></div>
+    <div><h4>Company</h4>
+      <a href="#" data-go="about">About</a><a href="#" data-go="work">Our work</a><a href="#" data-go="jobs">Open roles</a><a href="#" data-go="contact">Contact</a></div>
+    <div><h4>Offices</h4>
+      <a href="#" data-go="about">London</a><a href="#" data-go="about">Dubai</a><a href="#" data-go="about">Manila</a></div>
+  </div>
+  <div class="fin">
+    <span>CONCEPT BUILT BY LOCALENHANCE · NOT A LIVE SITE</span>
+    <span>SOCIUM STAFFING SOLUTIONS INC. · BGC, TAGUIG</span>
+  </div>
+</div></footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var TITLES = {
+    home:     "Offshore Tech Teams in the Philippines | Socium Manila",
+    solutions:"Staff Augmentation, RPO & Offshore Delivery Teams | Socium",
+    jobs:     "Tech Jobs in Manila & BGC | Socium Careers",
+    work:     "Case Studies: Tech Team Builds for Aveva, bolttech & TravelPerk | Socium",
+    about:    "About Socium | Tech Staffing in London, Dubai & Manila",
+    contact:  "Build an Offshore Tech Team | Contact Socium Manila"
+  };
+
+  var views = {};
+  ["home","solutions","jobs","work","about","contact"].forEach(function(k){
+    views[k] = document.getElementById("v-" + k);
+  });
+
+  function go(k){
+    if (!views[k]) k = "home";
+    Object.keys(views).forEach(function(x){ views[x].hidden = (x !== k); });
+    Array.prototype.forEach.call(document.querySelectorAll("#nav button"), function(b){
+      b.classList.toggle("on", b.dataset.go === k);
+    });
+    document.title = TITLES[k] || TITLES.home;
+    window.scrollTo({top:0, behavior:"auto"});
+  }
+
+  document.addEventListener("click", function(ev){
+    var t = ev.target.closest("[data-go]");
+    if (!t) return;
+    ev.preventDefault();
+    go(t.dataset.go);
+  });
+
+  /* ---- job board ---- */
+  var JOBS = [
+    { t:"Java Developer", live:true, loc:"Hybrid · Taguig", dis:"Engineering", type:"Permanent",
+      exp:"5 to 10 years", min:100000, max:200000,
+      d:"Backend Java on a long-running enterprise platform programme. Hybrid from BGC." },
+    { t:"Backend Developer", live:true, loc:"Hybrid · Makati", dis:"Engineering", type:"Permanent",
+      exp:"5 to 10 years", min:90000, max:150000,
+      d:"Backend engineering for a client product team, hybrid from Makati." },
+    { t:"Senior QA Automation Engineer", live:false, loc:"Hybrid · Taguig", dis:"Quality", type:"Contract",
+      exp:"4 to 8 years", min:80000, max:130000,
+      d:"Example listing, shown to demonstrate the layout and the filters." },
+    { t:"DevOps Engineer", live:false, loc:"Remote · Philippines", dis:"Platform", type:"Permanent",
+      exp:"5 to 9 years", min:110000, max:170000,
+      d:"Example listing, shown to demonstrate the layout and the filters." },
+    { t:"Recruitment Consultant, Technology", live:false, loc:"Hybrid · Taguig", dis:"Internal", type:"Permanent",
+      exp:"2 to 5 years", min:40000, max:70000,
+      d:"Example listing, shown to demonstrate the layout and the filters." },
+    { t:"Delivery Lead, Teams as a Service", live:false, loc:"Hybrid · Taguig", dis:"Delivery", type:"Permanent",
+      exp:"7 to 12 years", min:150000, max:230000,
+      d:"Example listing, shown to demonstrate the layout and the filters." }
+  ];
+
+  function uniq(key){
+    var seen = [];
+    JOBS.forEach(function(j){ if (seen.indexOf(j[key]) === -1) seen.push(j[key]); });
+    return seen;
+  }
+  function fill(id, key){
+    var sel = document.getElementById(id);
+    uniq(key).forEach(function(v){
+      var o = document.createElement("option");
+      o.value = v; o.textContent = v;
+      sel.appendChild(o);
+    });
+  }
+  fill("jloc","loc"); fill("jdis","dis"); fill("jtype","type");
+
+  var peso = new Intl.NumberFormat("en-PH", {maximumFractionDigits:0});
+
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+
+  function render(){
+    var q    = document.getElementById("jq").value.trim().toLowerCase();
+    var loc  = document.getElementById("jloc").value;
+    var dis  = document.getElementById("jdis").value;
+    var type = document.getElementById("jtype").value;
+
+    var hits = JOBS.filter(function(j){
+      if (loc  && j.loc  !== loc)  return false;
+      if (dis  && j.dis  !== dis)  return false;
+      if (type && j.type !== type) return false;
+      if (q && (j.t + " " + j.dis + " " + j.d).toLowerCase().indexOf(q) === -1) return false;
+      return true;
+    });
+
+    var host = document.getElementById("jobs");
+    document.getElementById("jcount").textContent =
+      hits.length + (hits.length === 1 ? " role" : " roles");
+
+    if (!hits.length){
+      host.innerHTML = '<div class="empty">No roles match that. Clear a filter, or send us your CV and we will come to you when one opens.</div>';
+      return;
+    }
+
+    host.innerHTML = hits.map(function(j){
+      return '<article class="job">' +
+        '<div>' +
+          '<div class="job-t">' + esc(j.t) + '</div>' +
+          '<div class="job-m">' +
+            '<span>' + esc(j.loc) + '</span>' +
+            '<span>' + esc(j.type) + '</span>' +
+            '<span>' + esc(j.exp) + '</span>' +
+            '<span><b>PHP ' + peso.format(j.min) + ' to ' + peso.format(j.max) + '</b> / month</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="job-r">' +
+          '<span class="pill ' + (j.live ? 'live">Live requisition' : 'ex">Example listing') + '</span>' +
+          '<span class="cta ghost" style="padding:8px 15px">View role</span>' +
+        '</div>' +
+      '</article>';
+    }).join("");
+  }
+
+  ["jq","jloc","jdis","jtype"].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener(id === "jq" ? "input" : "change", render);
+  });
+
+  render();
+  go("home");
+})();
+</script>
+</body>
+</html>

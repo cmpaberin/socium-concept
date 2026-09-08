@@ -33,8 +33,9 @@ a{color:inherit;text-decoration:none}
 .lock{display:flex;align-items:center;gap:var(--s3)}
 .lock img{width:38px;height:38px;flex:none}
 .lock-t{line-height:1}
-.lock-n{font-family:var(--mark);font-weight:700;font-size:25px;letter-spacing:-.015em;color:var(--ink)}
-.lock-s{font-family:var(--disp);font-weight:500;font-size:8.5px;letter-spacing:.19em;text-transform:uppercase;color:var(--brand);margin-top:3px}
+.lock-t{display:flex;flex-direction:column;line-height:1}
+.lock-n{display:block;font-family:var(--mark);font-weight:700;font-size:24px;letter-spacing:-.015em;color:var(--ink);line-height:1}
+.lock-s{display:block;font-family:var(--disp);font-weight:600;font-size:7.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--brand);margin-top:4px;white-space:nowrap}
 .on-dark .lock-n{color:#fff}
 
 /* ---------- header ---------- */
@@ -68,7 +69,8 @@ nav a:hover{color:#fff;border-bottom-color:var(--brand)}
 .hero .acts{display:flex;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s7)}
 .trust{display:flex;flex-wrap:wrap;gap:var(--s4) var(--s6);align-items:center;padding-top:var(--s5);border-top:1px solid rgba(255,255,255,.14)}
 .trust div{font-family:var(--disp);font-size:13px;color:var(--on-dark-70);font-weight:500}
-.trust b{font-family:var(--disp);font-weight:800;font-size:22px;color:#fff;margin-right:7px;font-variant-numeric:tabular-nums}
+.trust b{font-family:var(--disp);font-weight:800;font-size:22px;color:#fff;font-variant-numeric:tabular-nums}
+.trust .n{margin-right:8px;white-space:nowrap}
 .strip{height:12px;background:var(--brand)}
 
 /* ---------- sections ---------- */
@@ -109,6 +111,15 @@ ul.tick{list-style:none;padding:0;margin:var(--s5) 0 0;display:flex;flex-directi
 ul.tick li{position:relative;padding-left:26px;font-size:16.5px}
 ul.tick li::before{content:"";position:absolute;left:0;top:10px;width:10px;height:10px;background:var(--brand)}
 .dark ul.tick li{color:var(--on-dark-70)}
+
+
+.faces{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5) var(--s4);margin-top:var(--s7)}
+.face{text-align:left}
+.face .ph{aspect-ratio:1;overflow:hidden;background:#141414;border:1px solid var(--on-dark-line);margin-bottom:var(--s3)}
+.face .ph img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.face:hover .ph img{transform:scale(1.05)}
+.face .nm{font-family:var(--disp);font-weight:700;font-size:14.5px;color:#fff;line-height:1.3}
+.face .ttl{font-size:12.5px;color:var(--on-dark-70);margin-top:3px;line-height:1.4}
 
 /* jobs */
 .jobs-head{display:flex;flex-wrap:wrap;gap:var(--s4);align-items:flex-end;margin-bottom:var(--s5)}
@@ -166,6 +177,8 @@ footer a:hover{color:var(--brand)}
 .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
 
+@media (max-width:980px){ .faces{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:420px){ .top .btn{display:none} .lock-n{font-size:21px} }
 @media (max-width:980px){
   .split{grid-template-columns:1fr;gap:var(--s6)}
   .fg{grid-template-columns:1fr 1fr}
@@ -220,9 +233,9 @@ footer a:hover{color:var(--brand)}
       <a class="btn out" href="#jobs">See open roles</a>
     </div>
     <div class="trust">
-      <div><b data-count="90">0</b>% retained client base</div>
-      <div><b data-count="28">0</b> in the Manila delivery team</div>
-      <div><b data-count="8">0</b> years building tech teams</div>
+      <div><span class="n"><b data-count="90">0</b>%</span>retained client base</div>
+      <div><span class="n"><b data-count="28">0</b></span>in the Manila delivery team</div>
+      <div><span class="n"><b data-count="8">0</b></span>years building tech teams</div>
       <div>Great Place To Work certified, PH</div>
     </div>
   </div>
@@ -298,7 +311,20 @@ footer a:hover{color:var(--brand)}
         <li>London and Dubai for onshore, client-side coverage</li>
       </ul>
     </div>
-    <div class="shot rv" style="aspect-ratio:4/3"><img src="assets/team-4.jpg" alt="The Socium team"></div>
+    <div class="shot rv" style="aspect-ratio:4/3"><img src="assets/manila.png" alt="Metro Manila at dusk, from Socium's own imagery"></div>
+  </div>
+  <div class="w" style="margin-top:var(--s8)">
+    <div class="eyebrow">The Manila bench</div>
+    <div class="faces">
+      <div class="face rv"><div class="ph"><img src="assets/p-grace.png" alt="Grace Zulueta" loading="lazy"></div><div class="nm">Grace Zulueta</div><div class="ttl">Client Partner</div></div>
+      <div class="face rv"><div class="ph"><img src="assets/p-clara.jpg" alt="Clara Turner" loading="lazy"></div><div class="nm">Clara Turner</div><div class="ttl">Head of TaaS Delivery</div></div>
+      <div class="face rv"><div class="ph"><img src="assets/p-shane.jpg" alt="Shane Garcellano" loading="lazy"></div><div class="nm">Shane Garcellano</div><div class="ttl">Practice Lead</div></div>
+      <div class="face rv"><div class="ph"><img src="assets/p-brenda.jpg" alt="Brenda De Leon" loading="lazy"></div><div class="nm">Brenda De Leon</div><div class="ttl">Manager, RPO</div></div>
+      <div class="face rv"><div class="ph"><img src="assets/p-patricia.jpg" alt="Patricia Gundran" loading="lazy"></div><div class="nm">Patricia Gundran</div><div class="ttl">Principal Recruitment Consultant</div></div>
+      <div class="face rv"><div class="ph"><img src="assets/p-lenille.jpg" alt="Lenille Migraso" loading="lazy"></div><div class="nm">Lenille Migraso</div><div class="ttl">Associate Manager, APAC</div></div>
+      <div class="face rv"><div class="ph"><img src="assets/p-hanna.jpg" alt="Hanna Buena" loading="lazy"></div><div class="nm">Hanna Buena</div><div class="ttl">Head of Finance &amp; Compliance, APAC</div></div>
+      <div class="face rv"><div class="ph"><img src="assets/p-jp.png" alt="JP Galinato" loading="lazy"></div><div class="nm">JP Galinato</div><div class="ttl">Head of Global Marketing</div></div>
+    </div>
   </div>
 </section>
 

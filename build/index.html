@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>What LocalEnhance can build for Socium</title>
+<meta name="description" content="A capability answer for Socium, mapped to sourcing, delivery, reporting and client management. Prepared by LocalEnhance, September 2026.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#FBFBFC; --card:#FFFFFF; --sunk:#F2F3F6;
+  --ink:#0E1015; --text:#31363F; --mute:#636A76; --faint:#98A0AC;
+  --line:#E3E5EA; --line-2:#C8CCD4;
+  --le:#1D4ED8; --le-deep:#173CA6; --le-wash:#EAEFFC;
+  --lime:#A6EC4F; --lime-ink:#3F6210;
+  --so:#FD6F06;
+  --ok:#0F7A4F; --ok-wash:#E6F3EC;
+  --new:#8A5A00; --new-wash:#FBF1DE;
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;
+  --disp:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"Inter","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0E1015; --card:#171A20; --sunk:#1E222A;
+  --ink:#F1F2F5; --text:#C7CCD5; --mute:#8E96A3; --faint:#666E7B;
+  --line:#272C35; --line-2:#3A4150;
+  --le:#7CA0F5; --le-deep:#A8C0FA; --le-wash:#151F38;
+  --lime:#A6EC4F; --lime-ink:#C9F58C;
+  --ok:#5CC08E; --ok-wash:#12281F; --new:#D9AF5C; --new-wash:#2B2313;
+}}
+:root[data-theme="dark"]{
+  --paper:#0E1015; --card:#171A20; --sunk:#1E222A;
+  --ink:#F1F2F5; --text:#C7CCD5; --mute:#8E96A3; --faint:#666E7B;
+  --line:#272C35; --line-2:#3A4150;
+  --le:#7CA0F5; --le-deep:#A8C0FA; --le-wash:#151F38;
+  --lime:#A6EC4F; --lime-ink:#C9F58C;
+  --ok:#5CC08E; --ok-wash:#12281F; --new:#D9AF5C; --new-wash:#2B2313;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--body);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;padding-bottom:var(--s8)}
+.w{max-width:1080px;margin:0 auto;padding:0 var(--s5)}
+h1,h2,h3,h4{font-family:var(--disp);color:var(--ink);margin:0;letter-spacing:-.024em;text-wrap:balance}
+p{margin:0}
+a{color:var(--le);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--le) 35%,transparent)}
+a:hover{border-bottom-color:var(--le)}
+:focus-visible{outline:2px solid var(--le);outline-offset:3px}
+code{font-family:var(--mono);font-size:.86em;background:var(--sunk);padding:2px 6px;color:var(--ink)}
+
+/* masthead */
+.mast{border-bottom:1px solid var(--line-2);padding:var(--s7) 0 var(--s6);margin-bottom:var(--s7)}
+.brandrow{display:flex;flex-wrap:wrap;gap:var(--s4) var(--s5);align-items:center;margin-bottom:var(--s6)}
+.lelogo{font-family:var(--disp);font-weight:700;font-size:19px;letter-spacing:-.035em;color:var(--ink)}
+.lelogo i{font-style:normal;color:var(--le)}
+.forwho{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);margin-left:auto;border:1px solid var(--line-2);padding:6px 12px;border-radius:100px}
+h1{font-size:clamp(32px,4.8vw,56px);font-weight:700;line-height:1.03;max-width:22ch;margin-bottom:var(--s5)}
+h1 em{font-style:normal;color:var(--le)}
+.stand{font-size:19px;color:var(--mute);max-width:62ch;line-height:1.55}
+.stand b{color:var(--ink);font-weight:600}
+.metaline{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;color:var(--faint);margin-top:var(--s5);display:flex;flex-wrap:wrap;gap:6px var(--s5)}
+
+/* answer box */
+.answer{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--le);padding:var(--s6) var(--s6);margin-bottom:var(--s8);box-shadow:0 1px 2px rgba(14,16,21,.04),0 14px 34px -28px rgba(14,16,21,.3)}
+.answer h2{font-size:13px;font-family:var(--mono);font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--le);margin-bottom:var(--s4)}
+.answer p{max-width:72ch;margin-bottom:var(--s3)}
+.answer p:last-child{margin-bottom:0}
+.answer strong{color:var(--ink);font-weight:600}
+
+/* sections */
+section{margin-bottom:var(--s8)}
+.sec-h{margin-bottom:var(--s6);padding-bottom:var(--s4);border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--le);margin-bottom:var(--s3);display:flex;align-items:center;gap:var(--s3)}
+.eyebrow .their{background:var(--le-wash);color:var(--le);padding:3px 9px;border-radius:3px;letter-spacing:.1em}
+.sec-h h2{font-size:clamp(24px,3vw,34px);font-weight:700;line-height:1.1;max-width:26ch}
+.sec-h p{margin-top:var(--s3);color:var(--mute);max-width:64ch;font-size:17px}
+
+/* build items */
+.items{display:flex;flex-direction:column;gap:var(--s3)}
+.item{background:var(--card);border:1px solid var(--line);padding:var(--s5)}
+.item-h{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:baseline;margin-bottom:var(--s2)}
+.item-h h3{font-size:17.5px;font-weight:600;letter-spacing:-.015em;flex:1 1 auto;min-width:220px}
+.item p{font-size:15.5px;color:var(--mute);max-width:78ch}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:none}
+.tag{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;white-space:nowrap}
+.tag.run{background:var(--ok-wash);color:var(--ok)}
+.tag.adapt{background:var(--le-wash);color:var(--le)}
+.tag.new{background:var(--new-wash);color:var(--new)}
+.tag.eff{background:var(--sunk);color:var(--mute);border:1px solid var(--line)}
+
+/* legend */
+.legend{display:flex;flex-wrap:wrap;gap:var(--s4) var(--s6);padding:var(--s5);background:var(--sunk);margin-bottom:var(--s7);font-size:14.5px;color:var(--mute)}
+.legend div{display:flex;gap:var(--s3);align-items:baseline}
+.legend b{color:var(--ink);font-weight:600}
+
+/* pilot */
+.pilot{background:var(--ink);color:#EDEFF3;padding:var(--s7) var(--s6);margin-bottom:var(--s8)}
+.pilot h2{color:#fff;font-size:clamp(24px,3vw,34px);font-weight:700;max-width:24ch;margin-bottom:var(--s4)}
+.pilot .eyebrow{color:var(--lime)}
+.pilot p{color:#AEB6C2;max-width:68ch;margin-bottom:var(--s4)}
+.pilot ol{margin:var(--s5) 0 0;padding-left:0;list-style:none;counter-reset:s}
+.pilot ol li{counter-increment:s;position:relative;padding-left:40px;margin-bottom:var(--s4);color:#C7CDD7;max-width:70ch}
+.pilot ol li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;background:var(--lime);color:var(--lime-ink);font-family:var(--mono);font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center}
+.pilot ol li b{color:#fff;font-weight:600}
+.measure{margin-top:var(--s6);padding-top:var(--s5);border-top:1px solid #262B34}
+.measure .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin-bottom:var(--s3)}
+.measure p{color:#C7CDD7;margin:0}
+
+/* limits */
+.limits{border:1px solid var(--line-2);padding:var(--s6);background:var(--card)}
+.limits h2{font-size:22px;font-weight:700;margin-bottom:var(--s4)}
+.limits ul{margin:0;padding-left:22px}
+.limits li{margin-bottom:var(--s3);max-width:74ch;font-size:15.5px}
+.limits li b{color:var(--ink)}
+
+/* proof */
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:var(--s5)}
+.proof div{background:var(--card);padding:var(--s5)}
+.proof .n{font-family:var(--disp);font-weight:700;font-size:31px;color:var(--le);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.proof .l{font-size:14px;color:var(--mute);margin-top:var(--s2);line-height:1.4}
+
+.crosslink{display:flex;flex-wrap:wrap;gap:var(--s4);align-items:center;justify-content:space-between;background:var(--le-wash);border:1px solid color-mix(in srgb,var(--le) 25%,transparent);padding:var(--s5) var(--s6);margin-bottom:var(--s8)}
+.crosslink p{max-width:56ch;font-size:16px;color:var(--text)}
+.crosslink b{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;font-family:var(--disp);font-weight:600;font-size:14.5px;background:var(--le);color:#fff;padding:13px 22px;border:1px solid var(--le);white-space:nowrap;border-bottom:1px solid var(--le)}
+.btn:hover{background:var(--le-deep);border-color:var(--le-deep);color:#fff}
+
+footer{border-top:1px solid var(--line-2);padding-top:var(--s5);font-size:14px;color:var(--faint);max-width:78ch}
+footer p{margin-bottom:var(--s3)}
+.chip{position:fixed;left:18px;bottom:18px;z-index:250;background:rgba(14,16,21,.92);backdrop-filter:blur(8px);color:rgba(255,255,255,.8);font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;border-radius:100px;border:1px solid rgba(29,78,216,.5);pointer-events:none;max-width:calc(100vw - 36px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:640px){
+  .w{padding:0 18px}
+  .item-h{flex-direction:column;gap:var(--s3)}
+  .item-h h3{min-width:0}
+  .tags{flex:1 1 100%}
+  .tag{white-space:normal}
+  .forwho{margin-left:0}
+  .pilot,.answer,.limits,.crosslink{padding:var(--s5) var(--s4)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="w">
+
+<header class="mast">
+  <div class="brandrow">
+    <span class="lelogo">Local<i>Enhance</i></span>
+    <span class="forwho">Prepared for Socium &middot; 8 Sep 2026</span>
+  </div>
+  <h1>What we can <em>actually build</em> for Socium.</h1>
+  <p class="stand">Grace asked what and how we can support you, so this is the answer in your own four words: <b>sourcing, delivery, reporting and client management</b>. Every line below is a thing we have built before, adapted, or would build. Nothing on this page is a capability we do not have.</p>
+  <div class="metaline"><span>For Thomas Chapman and Grace Zulueta</span><span>&middot;</span><span>Scoping call Thu 10 Sep, 10:30</span></div>
+</header>
+
+<div class="answer">
+  <h2>The short version</h2>
+  <p>We are a software and delivery team, not an agency with a deck. We build the internal systems a business runs on, and we build the front end that brings work in. For you that splits cleanly in two.</p>
+  <p><strong>Inside the business:</strong> the requisition pipeline, the fill-rate numbers, the client-facing reporting, and the account health view. That is the same shape as the CRM we built for ourselves and run every day.</p>
+  <p><strong>Outside the business:</strong> you told us enquiries come from referrals. That means growth is capped at the rate your network introduces you, and every buyer who searches instead of asking a friend never finds you. That half is what we do for a living.</p>
+  <p>One thing we would not do, since it came up: <strong>we do not build employee productivity monitoring.</strong> More on that at the bottom.</p>
+</div>
+
+<div class="crosslink">
+  <p><b>You have already seen half of this.</b> The working socium.team concept, built in an afternoon on your own brand assets, with the job board and the Google for Jobs schema.</p>
+  <a class="btn" href="../">Open the site concept</a>
+</div>
+
+<div class="legend">
+  <div><span class="tag run">Running now</span><span>Live for us or for our clients today. Configuration, not construction.</span></div>
+  <div><span class="tag adapt">Adapt</span><span>Built once, reshaped for you.</span></div>
+  <div><span class="tag new">New build</span><span>Genuinely new. Estimated honestly.</span></div>
+</div>
+
+<!-- SOURCING -->
+<section>
+  <div class="sec-h">
+    <div class="eyebrow"><span class="their">Your pain point 01</span> Sourcing</div>
+    <h2>Stop renting your candidate traffic.</h2>
+    <p>Your live roles sit on Bossjob, LinkedIn and BeBee. Those platforms collect the search traffic and the candidate data, and you pay for access to people who were looking for you anyway.</p>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-h"><h3>Job board on socium.team with JobPosting schema</h3>
+        <div class="tags"><span class="tag adapt">Adapt</span><span class="tag eff">1 to 2 weeks</span></div></div>
+      <p>Roles live on your own domain, structured so Google for Jobs and AI assistants can read them. Already built and clickable in the concept. Feeds Job Fillability directly, because a role nobody can find is a role nobody applies to.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>Candidate screening agent on WhatsApp and Viber</h3>
+        <div class="tags"><span class="tag adapt">Adapt</span><span class="tag eff">3 to 4 weeks</span></div></div>
+      <p>Philippine candidates live on Messenger and Viber, not email. An agent that opens the conversation, asks the five qualifying questions a consultant would, books the interview into a real calendar, and hands over a written summary. We run this pattern on WhatsApp Cloud API today.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>Searchable talent pool over your own CV history</h3>
+        <div class="tags"><span class="tag new">New build</span><span class="tag eff">3 to 4 weeks</span></div></div>
+      <p>Every CV you have ever received, parsed and searchable by meaning rather than keyword, so a new requisition starts with the people you already know. We run Postgres with pgvector for this kind of search.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>Get named in the lists your buyers and candidates read</h3>
+        <div class="tags"><span class="tag run">Running now</span><span class="tag eff">Retainer</span></div></div>
+      <p>Search "best offshore staffing Philippines" and you get Cloudstaff, Emapta, MicroSourcing, Outsourced, MultiplyMii and Full Scale. Not Socium. Those roundups are what ChatGPT and Google's AI answers quote, so absence there is absence from both.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section>
+  <div class="sec-h">
+    <div class="eyebrow"><span class="their">Your pain point 02</span> Delivery</div>
+    <h2>One place where every requisition is visible and ageing.</h2>
+    <p>You have a Job Fillability meeting and a Bi Weekly BD meeting on the calendar. Both are usually a sign that the numbers live in someone's spreadsheet the night before.</p>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-h"><h3>Requisition pipeline board</h3>
+        <div class="tags"><span class="tag adapt">Adapt</span><span class="tag eff">3 to 4 weeks</span></div></div>
+      <p>Every open req, its stage, its owner, how long it has been sitting, and what it is waiting on. Sits alongside HubSpot rather than replacing it. This is the closest thing to our own CRM deal pipeline, which is why it is an adaptation and not a build.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>Fill rate and time to fill, computed not compiled</h3>
+        <div class="tags"><span class="tag adapt">Adapt</span><span class="tag eff">2 weeks</span></div></div>
+      <p>The numbers your Job Fillability meeting exists to review, calculated from the pipeline itself and correct at the moment anyone opens it. Per consultant, per client, per discipline.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>Bench and squad utilisation for Teams as a Service</h3>
+        <div class="tags"><span class="tag new">New build</span><span class="tag eff">2 to 3 weeks</span></div></div>
+      <p>Who is on which squad, who rolls off when, and where the gap is coming. TaaS margin lives or dies on this and it is usually the least instrumented part of a staffing business.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>Interview scheduling without the four-message thread</h3>
+        <div class="tags"><span class="tag adapt">Adapt</span><span class="tag eff">2 weeks</span></div></div>
+      <p>Candidate availability, consultant calendar and the client's hiring manager reconciled automatically, with the reminders sent on the channel the candidate actually reads.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REPORTING -->
+<section>
+  <div class="sec-h">
+    <div class="eyebrow"><span class="their">Your pain point 03</span> Reporting</div>
+    <h2>Your clients should not have to ask how it is going.</h2>
+    <p>This is the one we would start with, because it is the fastest visible change and it produces the cost against productivity number Thomas asked for.</p>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-h"><h3>Live client portal, one per account</h3>
+        <div class="tags"><span class="tag run">Running now</span><span class="tag eff">2 to 3 weeks for the first</span></div></div>
+      <p>Each client logs in and sees their own requisitions, submissions, stage, and time to fill, current as of now. We run roughly 24 of these for our own clients. It removes the weekly status email and it is the single strongest retention tool we have, because clients leave when they cannot feel the work, not when the work is bad.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>Monthly client reporting, generated</h3>
+        <div class="tags"><span class="tag run">Running now</span><span class="tag eff">1 to 2 weeks</span></div></div>
+      <p>The report a consultant currently spends half a day assembling, produced from the pipeline and sent on a schedule. If that is two hours a month per account across your book, the arithmetic makes itself.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>Executive scorecard for Thomas</h3>
+        <div class="tags"><span class="tag adapt">Adapt</span><span class="tag eff">2 weeks</span></div></div>
+      <p>Fill rate, time to fill, gross profit per consultant, revenue per head, and pipeline coverage by office. We built exactly this for ourselves at <code>/exec-review</code> and rebuilt it once when the first version measured the wrong thing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT MANAGEMENT -->
+<section>
+  <div class="sec-h">
+    <div class="eyebrow"><span class="their">Your pain point 04</span> Client management</div>
+    <h2>Know an account is going quiet before it goes.</h2>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-h"><h3>Account health, with contact frequency as the signal</h3>
+        <div class="tags"><span class="tag adapt">Adapt</span><span class="tag eff">2 to 3 weeks</span></div></div>
+      <p>Last real conversation, open reqs, submission rate, and time since the last piece of good news, per account. In our own book, insufficient ongoing contact is the single largest driver of churn, ahead of results. It is measurable and therefore preventable.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>One inbox per account, across every channel</h3>
+        <div class="tags"><span class="tag adapt">Adapt</span><span class="tag eff">3 weeks</span></div></div>
+      <p>Email, WhatsApp and LinkedIn threads for an account in one place, so cover during leave is a handover rather than an archaeology exercise. Our own CRM is built around a unified inbox for the same reason.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>Invoice chasing that does not need a person</h3>
+        <div class="tags"><span class="tag new">New build</span><span class="tag eff">2 to 3 weeks</span></div></div>
+      <p>Overdue detection, a polite escalating sequence, and an internal flag before it becomes a relationship problem. We specified this for our own late payers and it is straightforward once invoices and accounts are in the same system.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH -->
+<section>
+  <div class="sec-h">
+    <div class="eyebrow"><span class="their">Not on your list</span> Growth</div>
+    <h2>Referrals are a ceiling, not a channel.</h2>
+    <p>Grace said enquiries come from referrals today. This is the half nobody else in your evaluation is offering, and it is our core business rather than an extension of it.</p>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-h"><h3>The website, rebuilt and actually competing</h3>
+        <div class="tags"><span class="tag run">Running now</span><span class="tag eff">3 to 4 weeks, then retainer</span></div></div>
+      <p>Off Divi, which is why your mobile largest paint is 13.3 seconds against a 2.5 second threshold. Real page titles instead of "Home - Socium". Meta descriptions, of which you currently have none on any page. The draft pages that are live and indexable taken down. Google Business Profiles for London, Dubai and Manila.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>AI visibility monitoring</h3>
+        <div class="tags"><span class="tag run">Running now</span><span class="tag eff">Retainer</span></div></div>
+      <p>Track whether Socium gets named when a CTO asks ChatGPT or Google's AI for offshore delivery partners in the Philippines, and work the sources those answers are built from. This is a product we already run.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>Content engine aimed at buyer questions</h3>
+        <div class="tags"><span class="tag run">Running now</span><span class="tag eff">Retainer</span></div></div>
+      <p>Your blog last published on 13 September 2023 and you have nine written case studies doing no work. The assets exist. Nobody has pointed them at the questions your buyers type.</p>
+    </div>
+    <div class="item">
+      <div class="item-h"><h3>LocalEnhance as your delivery arm</h3>
+        <div class="tags"><span class="tag adapt">Adapt</span><span class="tag eff">Per project</span></div></div>
+      <p>When one of your clients wants something built rather than someone hired, you currently place contractors and hope, or decline. Subcontract the build to us and take a margin on work you would otherwise turn away. This costs you nothing until a real client need appears, and it is the highest ceiling item on this page.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PILOT -->
+<div class="pilot">
+  <div class="eyebrow">What we would do first</div>
+  <h2>One workflow, four to six weeks, paid, with a number at the end.</h2>
+  <p>Grace wrote to Thomas that this needs validating through your actual use cases rather than decided on a presentation. We agree, so we are not proposing a platform purchase. We are proposing the smallest piece of work that produces evidence.</p>
+  <ol>
+    <li><b>Pick one team and one client account.</b> Not the easiest one. The one where reporting hurts most.</li>
+    <li><b>We instrument that team's requisition flow.</b> Every stage timestamped, so fill rate and time to fill compute themselves instead of being assembled the night before Job Fillability.</li>
+    <li><b>We stand up the live portal for that one client.</b> They log in and see their own pipeline, current. The weekly status email stops.</li>
+    <li><b>We measure two things only.</b> Hours per consultant per week returned to actual recruiting, and the change in time to fill on that desk.</li>
+    <li><b>You decide with real numbers.</b> If the hours saved do not beat the fee on your own figures, we have both learned something cheaply and you owe us nothing further.</li>
+  </ol>
+  <div class="measure">
+    <div class="k">Running in parallel, because it is independent</div>
+    <p>The job board goes live on socium.team in the same window. One to two weeks, no dependency on anything above, and it starts collecting search traffic you currently give to Bossjob while the pilot runs.</p>
+  </div>
+</div>
+
+<!-- PROOF -->
+<section>
+  <div class="sec-h">
+    <div class="eyebrow">How fast we actually move</div>
+    <h2>Measured, not claimed.</h2>
+  </div>
+  <div class="proof">
+    <div><div class="n">2,213</div><div class="l">commits across our own platform between 27 May and 29 Aug 2026</div></div>
+    <div><div class="n">253</div><div class="l">pull requests merged in the same three months</div></div>
+    <div><div class="n">~24</div><div class="l">client portals live and in daily use</div></div>
+    <div><div class="n">1</div><div class="l">afternoon to build the socium.team concept you already have</div></div>
+  </div>
+  <p style="color:var(--mute);font-size:15.5px;max-width:70ch;margin-top:var(--s4)">Every merge to our production branch has to clear an automated test suite, a security review and a verification gate before the button opens. That gate has blocked our own work and been right to. We would rather tell you that than claim a clean record.</p>
+</section>
+
+<!-- LIMITS -->
+<section>
+  <div class="limits">
+    <h2>What we would not take on</h2>
+    <ul>
+      <li><b>Employee productivity monitoring.</b> Grace mentioned the other proposal focused on managing and monitoring people's productivity. We do not build surveillance tooling. It damages the trust a recruitment business runs on, and in our experience the throughput problem is almost always process, not effort. We will instrument the work. We will not instrument the people.</li>
+      <li><b>Replacing HubSpot.</b> You have a CRM. Everything above sits alongside it and reads from it. Rip-and-replace is how these projects die.</li>
+      <li><b>Becoming your applicant tracking system of record</b> in the first engagement. Too much risk in one step. We would integrate, prove the value, and only then discuss consolidation if you wanted it.</li>
+      <li><b>Touching candidate personal data without a data processing agreement in place</b> and named retention rules. You hold identity documents and salary data across three jurisdictions. That paperwork comes before the build, not after.</li>
+      <li><b>Quoting a number today.</b> Effort bands above are honest ranges. Commercial terms come from Tony Hilden, our founder, once we know which workflow we are starting with. We would rather scope one thing properly than price a wishlist.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p><b>Sources for the claims about your current setup.</b> socium.team page source, sitemaps and response headers, inspected 8 September 2026. Lighthouse 13.4.1, mobile, throttled, for the 13.3 second largest contentful paint. Your Bossjob company profile and live listings. Published competitor roundups for offshore staffing in the Philippines. Everything else on this page describes work LocalEnhance has done, and the tags say honestly which is running, which is adapted and which would be new.</p>
+  <p>Prepared by Carlos Aberin, LocalEnhance. Confidential and pre-contract.</p>
+</footer>
+
+</div>
+<div class="chip">&#128274; Confidential &middot; prepared for Socium &middot; 8 Sep 2026</div>
+</body>
+</html>
